@@ -77,6 +77,19 @@ body {
 
 /* DISPLAY STYLING */
 
+.display-headers-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto 20px auto;
+}
+
+.display-header {
+  margin: 0 100px;
+  width: 50%;
+  color: #fff;
+}
+
 .display-wrapper {
   margin-top: 20px;;
   display: flex;

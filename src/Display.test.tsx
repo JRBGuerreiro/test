@@ -118,9 +118,12 @@ it("Display components should be on screen and organised alphabetically ", () =>
     //Display components after sorting
     const displayWrappersAfterSorting = display.queryAllByTestId("display-wrapper");
     //how the components should be layed out
-    const expectedResult = ["word is: iscount is: 2", "word is: reallycount is: 4", "word is: testingcount is: 3"]
+    const expectedResult = ["is2", "really4", "testing3"]
 
     displayWrappersAfterSorting.forEach((display, index) => {
+        console.log(display.textContent)
+        console.log(displayWrappersAfterSorting)
+        console.log(expectedResult[index])
         expect(display.textContent == expectedResult[index]).toBeTruthy()
     })
 })
@@ -162,7 +165,7 @@ it("Display components should be on screen and organised by count ", () => {
 
     //Display components after sorting
     const displayWrappersAfterSorting = display.queryAllByTestId("display-wrapper");
-    const expectedResult = ["word is: reallycount is: 4", "word is: testingcount is: 3", "word is: iscount is: 2"]
+    const expectedResult = ["really4", "testing3", "is2"]
     displayWrappersAfterSorting.forEach((display, index) => {
         expect(display.textContent == expectedResult[index]).toBeTruthy()
     })

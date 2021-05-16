@@ -19,7 +19,7 @@ const Display: React.FC<DisplayProps> = ({obj, unmountDisplay}) => {
 
   //order our components by count
   const orderByCount = () => {
-    return Object.entries(obj).sort((a,b) => a[1] - b[1]).reverse()
+    return Object.entries(obj).sort((a,b) => b[1] - a[1])
   }
 
   //decide how to display our components in the UI based on filter
@@ -36,11 +36,15 @@ const Display: React.FC<DisplayProps> = ({obj, unmountDisplay}) => {
 
   return(
   <div>
+    <div className="display-headers-wrapper">
+      <h2 className="display-header">Word</h2>
+      <h2 className="display-header">Count</h2>
+    </div>
     {renderBasedOnFilter().map(([word, count]) => {
       return(
         <div data-testid="display-wrapper" className="display-wrapper" key = {word}>
-          <p className="display-word">word is: {word}</p>
-          <p className="display-count">count is: {count}</p>
+          <p className="display-word">{word}</p>
+          <p className="display-count">{count}</p>
         </div>
       ) 
     })}
