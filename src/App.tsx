@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import TextArea, {WordandCountObject} from "./components/TextArea";
+import Display from "./components/Display"
 
 function App() {
+  //state to store object passed in from TextArea component
+  const [wordCountObj, setWordCountObj] = useState<WordandCountObject | null>(null);
+
+  //function we pass to the callback prop from TextArea that receives our wordandcount object and sets it in state
+  function onWordCountChanged(obj: WordandCountObject) {
+    setWordCountObj(obj);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TextArea callback = {onWordCountChanged}></TextArea>
+      {/* conditionally render our display components */}
+      {wordCountObj && <Display obj = {wordCountObj}></Display>}
     </div>
   );
 }
