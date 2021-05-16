@@ -30,7 +30,7 @@ const TextArea: React.FC<TextAreaProps>= ({callback}) => {
      * clearString will be the outcome of striping out numbers, punctuation and any multiple adjacent whitespaces from the textArea output
      * Regex explained:
      * [^\w\s]|_ - anything that is not a letter, digit gets replaced by a whitespace
-     * [0-9] - anything that is a digit gets replaced for a white space - this is made under the assumption the display component should only display actual strings
+     * [0-9] - anything that is a digit gets replaced for a white space - this is made under the assumption the display component should only display actual strings/words
      * \s{2,}/ - collapses multi adjacent whitespaces to single spaces
      */
     const clearString = textAreaValue.replace(/[^\w\s]|_/g, "").replace(/[0-9]/g, "").replace(/\s{2,}/g," ");
@@ -49,18 +49,20 @@ const TextArea: React.FC<TextAreaProps>= ({callback}) => {
         obj[split[i]]++;
       }
     }   
-    console.log(obj)
     callback(obj);
   }
 
   //render it to DOM
   return (
+    <>
+    <h1 className="text-area-heading">React and Typescript Word Count Challenge</h1>
     <div className="textarea-formwrapper">
       <form className="textarea-form">
-        <textarea data-testid="textarea" className="textarea" value={textAreaValue} placeholder="Please insert your text" onChange={handleChange}></textarea>
-        <button data-testid="textarea-button" onClick={splitByWordAndCount}>Display word and count</button>
+        <textarea data-testid="textarea" id="textarea" className="textarea" value={textAreaValue} placeholder="Please insert your text" onChange={handleChange}></textarea>
+        <button className="textarea-button" data-testid="textarea-button" onClick={splitByWordAndCount}>Display word and count</button>
       </form>
     </div>
+    </>
   );
 };
 

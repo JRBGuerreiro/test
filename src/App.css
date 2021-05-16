@@ -1,14 +1,18 @@
+body {
+  height: 100vh;
+  background-color: #3b4e6b;
+}
+
 .App {
   text-align: center;
 }
 
-.display-wrapper {
-  display: flex;
-  justify-content: center;
-}
 
-.display-word {
-  margin-right: 20px;
+
+/* TEXT AREA STYLING */
+
+.text-area-heading {
+  color:#fff;
 }
 
 .textarea-form {
@@ -20,11 +24,107 @@
 
 .textarea{
   height: 150px;
-  width: 200px;
+  width: 300px;
   margin-bottom: 10px;
+  color: #fff;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+  background-color: #2a3546;
+  border: none;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: #fff;
+}
+
+.textarea:focus {
+  outline: none;
 }
 
 .textarea-formwrapper{
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 }
+
+.textarea-button {
+  background-color: #2a3546;
+  padding: 8px 16px 8px 16px;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+  margin-bottom: 20px;
+}
+
+.textarea-button:hover {
+  background-color: #3b4e6b;
+}
+
+/* DISPLAY STYLING */
+
+.display-wrapper {
+  margin-top: 20px;;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.display-word {
+  border-right: 1px solid #2a3546;
+  border-bottom: 1px solid #2a3546;
+}
+
+.display-count {
+  border-bottom: 1px solid #2a3546;
+}
+
+.display-word, .display-count {
+  width: 50%;
+  margin: 0;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.display-alphabetically-button, .display-count-button, .display-reset {
+  background-color: #2a3546;
+  padding: 8px 16px 8px 16px;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.display-alphabetically-button, .display-count-button {
+  margin-right: 10px;
+}
+
+.display-alphabetically-button:hover, .display-count-button:hover {
+  background-color: #3b4e6b;
+}
+
+

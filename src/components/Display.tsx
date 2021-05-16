@@ -3,9 +3,10 @@ import { WordandCountObject } from "./TextArea";
 
 type DisplayProps = {
   obj: WordandCountObject
+  unmountDisplay: () => void
 };
 
-const Display: React.FC<DisplayProps> = ({obj}) => {
+const Display: React.FC<DisplayProps> = ({obj, unmountDisplay}) => {
   //holds the current state for our filter
   const [filter, setFilter] = useState<string | null>(null)
 
@@ -31,7 +32,8 @@ const Display: React.FC<DisplayProps> = ({obj}) => {
     }
   }
 
-  return(<div>
+  return(
+  <div>
     {renderBasedOnFilter().map(([word, count]) => {
       return(
         <div data-testid="display-wrapper" className="display-wrapper" key = {word}>
@@ -40,10 +42,11 @@ const Display: React.FC<DisplayProps> = ({obj}) => {
         </div>
       ) 
     })}
+    <button className="display-reset" onClick={unmountDisplay}>Reset</button>
     {Object.entries(obj).length > 1 && 
     <div>
-      <button data-testid="alphabetically-button" onClick={() => setFilter("alphabetically")}>Order alphabetically</button>
-      <button data-testid="count-button" onClick={() => setFilter("count")}>Order by count</button>
+      <button className="display-alphabetically-button" data-testid="alphabetically-button" onClick={() => setFilter("alphabetically")}>Order alphabetically</button>
+      <button className="display-count-button" data-testid="count-button" onClick={() => setFilter("count")}>Order by count</button>
     </div>
     }
     
