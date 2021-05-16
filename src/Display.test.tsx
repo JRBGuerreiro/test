@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import TextArea, {WordandCountObject} from "./components/TextArea";
 import Display from "./components/Display"
 
@@ -12,7 +12,7 @@ it("Display should not be on screen on first load", () => {
     expect(queryByTestId("display-wrapper")).not.toBeTruthy();
 })
 
-it("Display should be on screen after TextArea has input and button is pressed but no buttons should be loaded", () => {
+it("Display should be on screen after TextArea has input and button is pressed but no buttons, apart from reset, should be loaded", () => {
     //just a mock function
     const callback = jest.fn();
 
@@ -39,6 +39,8 @@ it("Display should be on screen after TextArea has input and button is pressed b
     //check we have one instance of our display wrapper
     expect(display.queryAllByTestId("display-wrapper")).toHaveLength(1);
 
+    //reset button should be displayed
+    expect(display.queryByTestId("reset-button")).toBeTruthy();
     //our expectation with one single item in the our object is that the buttons are not in the DOM
     expect(display.queryByTestId("alphabetically-button")).not.toBeTruthy();
     expect(display.queryByTestId("count-button")).not.toBeTruthy();

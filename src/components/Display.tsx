@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { WordandCountObject } from "./TextArea";
 
 type DisplayProps = {
+  /**Object passed in with words and count */
   obj: WordandCountObject
+  /**function to define if display element gets rendered to screen or not */
   unmountDisplay: () => void
 };
 
@@ -42,7 +44,7 @@ const Display: React.FC<DisplayProps> = ({obj, unmountDisplay}) => {
         </div>
       ) 
     })}
-    <button className="display-reset" onClick={unmountDisplay}>Reset</button>
+    <button className="display-reset" data-testid="reset-button" onClick={unmountDisplay}>Reset</button>
     {Object.entries(obj).length > 1 && 
     <div>
       <button className="display-alphabetically-button" data-testid="alphabetically-button" onClick={() => setFilter("alphabetically")}>Order alphabetically</button>
