@@ -18,7 +18,7 @@ function App() {
 
   //Display component to be removed from the DOM
   function unmountDisplay() {
-    setWordCountObj({});
+    setWordCountObj(null);
     setRenderDisplay(false);
   }
 

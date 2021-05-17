@@ -121,9 +121,6 @@ it("Display components should be on screen and organised alphabetically ", () =>
     const expectedResult = ["is2", "really4", "testing3"]
 
     displayWrappersAfterSorting.forEach((display, index) => {
-        console.log(display.textContent)
-        console.log(displayWrappersAfterSorting)
-        console.log(expectedResult[index])
         expect(display.textContent == expectedResult[index]).toBeTruthy()
     })
 })

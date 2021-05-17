@@ -4,7 +4,7 @@ import { WordandCountObject } from "./TextArea";
 type DisplayProps = {
   /**Object passed in with words and count */
   obj: WordandCountObject
-  /**function to define if display element gets rendered to screen or not */
+  /**callback function to define if display element gets rendered to screen or not */
   unmountDisplay: () => void
 };
 
